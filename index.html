@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <meta name="description" content="A beautiful and responsive weather dashboard.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <div class="weather-card">
+            <header>
+                <h1>Weather</h1>
+            </header>
+            
+            <div class="search-box">
+                <i class="fa-solid fa-location-dot"></i>
+                <input type="text" id="location-input" placeholder="Enter location..." onkeydown="if(event.key === 'Enter'){getWeather()}">
+                <button onclick="getWeather()"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+            <div id="weather-result" class="weather-result hidden">
+                <div class="weather-main">
+                    <img id="weather-icon" src="" alt="Weather Icon" class="weather-icon">
+                    <h2 id="temperature" class="temperature">--°C</h2>
+                    <p id="condition" class="condition">--</p>
+                    <p id="location-name" class="location-name">--</p>
+                </div>
+                
+                <div class="weather-details">
+                    <div class="detail-card">
+                        <i class="fa-solid fa-droplet"></i>
+                        <div>
+                            <p class="detail-value" id="humidity">--%</p>
+                            <p class="detail-label">Humidity</p>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fa-solid fa-wind"></i>
+                        <div>
+                            <p class="detail-value" id="wind-speed">-- km/h</p>
+                            <p class="detail-label">Wind Speed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="error-message" class="error-message hidden">
+                <p>Location not found. Please try again.</p>
+            </div>
+            <div id="loading" class="loading hidden">
+                <p>Loading...</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
